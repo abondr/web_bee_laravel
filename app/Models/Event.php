@@ -12,8 +12,6 @@ class Event extends Model
     protected $appends = array('workshops');
 
     public function getWorkshopsAttribute() {
-        DB::enableQueryLog();
-        DB::getQueryLog();
         return Workshop::where('event_id','=',$this->id)->get();
     }
 }
